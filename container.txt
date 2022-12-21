@@ -1,0 +1,61 @@
+const addFood = (foodItem) => {
+    const foods = ["Pizza", "Chopsuey", "Steak"];
+    foods.push(foodItem);
+    const list = document.createElement("ul");
+    document.body.appendChild(list);
+    foods.forEach((food) => {
+        let listItem = document.createElement("li");
+        listItem.textContent = food;
+        list.appendChild(listItem);
+    });
+
+    return list;
+};
+
+addFood("momo");
+
+// Use For loop first , Foreach loop and for of loop
+// 1)Use above mentioned loop to print the name of fruits  in console:
+
+const Fruits = [
+    { name: "Apple", cost: "200" },
+    { name: "Guava", cost: "100" },
+    { name: "Mango", cost: "200" },
+];
+
+for (let i = 0; i < Fruits.length; i++) {
+    console.log(Fruits[i].name);
+}
+
+Fruits.forEach((fruit) => {
+    console.log(fruit.name);
+});
+
+for (let fruit of Fruits) console.log(fruit.name);
+
+// 2)Use above fruits array and change the value of name to console the output
+Fruits[0].name = "Grapes";
+Fruits[1].name = "Watermelon";
+Fruits[2].name = "Banana";
+console.log(Fruits);
+
+for (let fruit of Fruits) console.log(fruit.name);
+
+//3)Given an array that may contain duplicates, print all elements and their frequencies.
+//   Use for loop.
+const arr = [10, 20, 20, 10, 10, 20, 5, 20];
+const newArr = [];
+
+for (let i = 0; i < arr.length; i++) {
+    if (newArr.includes(arr[i])) {
+        continue;
+    } else {
+        newArr.push(arr[i]);
+    }
+    let count = 0;
+    for (let j = i; j < arr.length; j++) {
+        if (arr[i] === arr[j]) {
+            count++;
+        }
+    }
+    console.log(`${arr[i]} ${count}`);
